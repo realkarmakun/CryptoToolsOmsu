@@ -1,6 +1,7 @@
 package cryptotoolsomsu;
 
 public class Modulos {
+
     // a = b mod n
     int a;
     int b;
@@ -50,13 +51,5 @@ public class Modulos {
 
     public void printModulusAsIndex(int x) {
         System.out.printf("%d^%d ≡ %d mod %d\n", this.a, x, this.b, this.mod);
-    }
-
-
-
-    // Вычисляет a^x = b mod n
-    public void CalculateIndexOfNWithX(int x) {
-        int result = (this.getA()^x) % getMod();
-        this.setA(result);
     }
 }

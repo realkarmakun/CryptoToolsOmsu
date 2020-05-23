@@ -10,7 +10,7 @@ public class Utils {
     // 3. Функция Эйлера
 
     // Алгоритм найдет все простые множители n. Необходим для вычисления функции Эйлера по формуле.
-    public ArrayList<Integer> primeFactor(int n) {
+    public static ArrayList<Integer> primeFactor(int n) {
 
         // Создадим массив для результатов.
         ArrayList<Integer> result = new ArrayList<>();
