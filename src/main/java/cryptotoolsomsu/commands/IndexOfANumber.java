@@ -27,7 +27,7 @@ public class IndexOfANumber implements Callable<Integer> {
         Modulos modulos = new Modulos();
         modulos.setA(this.a);
         modulos.setMod(this.modulos);
-
+        /*
         // phi - будущая функция Эйлера
         // В этом цикле переберем все числа от 1 до phi(mod)
         for(int i = 1; i < phi(modulos.getMod()); i++) {
@@ -39,7 +39,8 @@ public class IndexOfANumber implements Callable<Integer> {
                 System.out.println("^^^^ Первообразный корень ^^^^\n");
             }
         }
-
+        */
+        System.out.println("it works god damn it!");
         return 0;
     }
 }
