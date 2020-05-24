@@ -6,7 +6,7 @@ import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
 
-@CommandLine.Command(name = "index-of-a-number", aliases = "idan", description = "Эта команда считает индекс числа a.")
+@CommandLine.Command(name = "index-number", aliases = "idn", description = "Эта команда считает индекс числа a.")
 public class IndexOfANumber implements Callable<Integer> {
 
     @CommandLine.Parameters(description = "Число, чьи показатели нужно посчитать.")
@@ -29,12 +29,16 @@ public class IndexOfANumber implements Callable<Integer> {
         modulos.setA(this.a);
         modulos.setMod(this.modulos);
 
+
         // phi - будущая функция Эйлера
         // В этом цикле переберем все числа от 1 до phi(mod)
-        for(int i = 1; i < Utils.eulerFunction(modulos.getMod()); i++) {
+        for(int i = 1; i < Utils.eulerFunction(modulos.getMod()) + 1 ; i++) {
             //Посчитаем а в степени и выведем на экран
             modulos.exponentiation(i);
             modulos.printModulusAsIndex(i, this.primitive && modulos.getB() == 1);
+            if (this.primitive && modulos.getB() == 1) {
+                break;
+            }
         }
         return 0;
     }
