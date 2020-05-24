@@ -45,7 +45,7 @@ public class Modulos {
     }
 
     public void exponentiation(int x) {
-        this.setB(this.getA()^x % this.getMod());
+        this.setB(((int)Math.pow(this.getA(),x)) % this.getMod());
     }
 
     public void printModulus(boolean primitive) {
