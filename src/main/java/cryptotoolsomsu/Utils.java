@@ -6,8 +6,7 @@ public class Utils {
     // Класс для общих алгоритмов
     // TO-DO по порядку:
     // 1. Prime Factor
-    // 2. НОД
-    // 3. Функция Эйлера
+    // 2. Функция Эйлера
 
     // Алгоритм найдет все простые множители n. Необходим для вычисления функции Эйлера по формуле.
     public static ArrayList<Integer> primeFactor(int n) {
@@ -17,7 +16,9 @@ public class Utils {
 
         //Этот цикл разделит n на два до тех пор пока не сможем.
         while (n % 2 == 0) {
-            result.add(2);
+            if (!(result.contains(2))) {
+                result.add(2);
+            }
             n = n / 2;
         }
 
@@ -27,7 +28,9 @@ public class Utils {
 
             // Делим на i пока не сможем
             while (n % i == 0) {
-                result.add(i);
+                if (!(result.contains(i))) {
+                    result.add(i);
+                }
                 n = n / i;
             }
         }
@@ -38,6 +41,18 @@ public class Utils {
             return result;
     }
 
+    // Алгоритм для нахождения функции Эйлера
+    public static int eulerFunction(int n) {
+        // Берем все простые множители n
+        ArrayList<Integer> arrayOfPrimitives = primeFactor(n);
+        float eulerFunction = n;
 
+        // Пробегаемся по формуле phi(n) = n * (1 - 1/p_1) * (1 - 1/p_2) * ..., где p_i - простой множитель числа n
+        for (Integer arrayOfPrimitive : arrayOfPrimitives) {
+            eulerFunction *= (1.0 - (1.0 / (float)arrayOfPrimitive));
+        }
+
+        return (int)eulerFunction;
+    }
 
 }
