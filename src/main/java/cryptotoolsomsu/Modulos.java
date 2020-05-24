@@ -44,7 +44,7 @@ public class Modulos {
         this.mod = mod;
     }
 
-    public void Exponentiation(int x) {
+    public void exponentiation(int x) {
         this.setB(this.getA()^x % this.getMod());
     }
 

@@ -33,7 +33,7 @@ public class IndexOfANumber implements Callable<Integer> {
         // В этом цикле переберем все числа от 1 до phi(mod)
         for(int i = 1; i < Utils.eulerFunction(modulos.getMod()); i++) {
             //Посчитаем а в степени и выведем на экран
-            modulos.Exponentiation(i);
+            modulos.exponentiation(i);
             modulos.printModulusAsIndex(i, this.primitive && modulos.getB() == 1);
         }
         return 0;
