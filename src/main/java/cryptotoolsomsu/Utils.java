@@ -31,8 +31,11 @@ public class Utils {
                 n = n / i;
             }
         }
+        if (n > 2) {
+            result.add(n);
+        }
 
-        return result;
+            return result;
     }
 
 
