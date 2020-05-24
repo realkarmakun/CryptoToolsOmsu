@@ -49,15 +49,15 @@ public class Modulos {
     }
 
     public void printModulus(boolean primitive) {
-        System.out.printf("%d ≡ %d mod %d\n", this.a, this.b, this.mod);
+        System.out.printf("%d = %d mod %d\n", this.a, this.b, this.mod);
     }
 
 
     public void printModulusAsIndex(int x, boolean primitiveOutput) {
         if (primitiveOutput) {
-            System.out.printf("[ПЕРВООБРАЗНЫЙ] %d^%d ≡ %d mod %d\n", this.a, x, this.b, this.mod);
+            System.out.printf("[ПЕРВООБРАЗНЫЙ] %d^%d = %d mod %d\n", this.a, x, this.b, this.mod);
         } else {
-            System.out.printf("%d^%d ≡ %d mod %d\n", this.a, x, this.b, this.mod);
+            System.out.printf("%d^%d = %d mod %d\n", this.a, x, this.b, this.mod);
         }
     }
 
