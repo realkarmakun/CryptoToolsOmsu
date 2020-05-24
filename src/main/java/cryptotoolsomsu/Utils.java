@@ -1,12 +1,10 @@
 package cryptotoolsomsu;
 
+import picocli.CommandLine;
+
 import java.util.ArrayList;
 
 public class Utils {
-    // Класс для общих алгоритмов
-    // TO-DO по порядку:
-    // 1. Prime Factor
-    // 2. Функция Эйлера
 
     // Алгоритм найдет все простые множители n. Необходим для вычисления функции Эйлера по формуле.
     public static ArrayList<Integer> primeFactor(int n) {
@@ -34,15 +32,18 @@ public class Utils {
                 n = n / i;
             }
         }
+
+        //Заберем оставшееся простое число
         if (n > 2) {
             result.add(n);
         }
 
-            return result;
+        return result;
     }
 
     // Алгоритм для нахождения функции Эйлера
     public static int eulerFunction(int n) {
+
         // Берем все простые множители n
         ArrayList<Integer> arrayOfPrimitives = primeFactor(n);
         float eulerFunction = n;

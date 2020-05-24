@@ -6,13 +6,13 @@ import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
 
-@CommandLine.Command(name = "index-of-a-number", aliases = "idan", description = "Эта команда считает индекс числа a")
+@CommandLine.Command(name = "index-of-a-number", aliases = "idan", description = "Эта команда считает индекс числа a.")
 public class IndexOfANumber implements Callable<Integer> {
 
-    @CommandLine.Parameters(description = "Число, чьи показатели нужно посчитать")
+    @CommandLine.Parameters(description = "Число, чьи показатели нужно посчитать.")
     int a;
 
-    @CommandLine.Option(names = {"-m", "--mod"}, description = "Модуль необходимый задаче", required = true)
+    @CommandLine.Option(names = {"-m", "--mod"}, description = "Модуль необходимый задаче.", required = true)
     int modulos;
 
     @CommandLine.Option(names = {"-p", "--primitive"}, description = "Опция включающая поиск первообразного.")
@@ -28,21 +28,14 @@ public class IndexOfANumber implements Callable<Integer> {
         Modulos modulos = new Modulos();
         modulos.setA(this.a);
         modulos.setMod(this.modulos);
-        /*
+
         // phi - будущая функция Эйлера
         // В этом цикле переберем все числа от 1 до phi(mod)
-        for(int i = 1; i < phi(modulos.getMod()); i++) {
+        for(int i = 1; i < Utils.eulerFunction(modulos.getMod()); i++) {
             //Посчитаем а в степени и выведем на экран
-            modulos.setB(modulos.getA()^i % modulos.getMod());
-            modulos.printModulusAsIndex(i);
-            // Пометим первообразный, если есть нужный аргумент и первообразный есть.
-            if (this.primitive && modulos.getB() == 1) {
-                System.out.println("^^^^ Первообразный корень ^^^^\n");
-            }
+            modulos.Exponentiation(i);
+            modulos.printModulusAsIndex(i, this.primitive && modulos.getB() == 1);
         }
-        */
-        System.out.println("Будет подсчитан Прайм фактор от модуля:\n");
-        System.out.print(Utils.primeFactor(modulos.getMod()).toString());
         return 0;
     }
 }

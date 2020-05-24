@@ -3,7 +3,7 @@ package cryptotoolsomsu.commands;
 import picocli.CommandLine;
 
 
-@CommandLine.Command(name = "toolkit", subcommands = {
+@CommandLine.Command(name = "toolkit", aliases = "tk", subcommands = {
         IndexOfANumber.class
 })
 public class Toolkit {
