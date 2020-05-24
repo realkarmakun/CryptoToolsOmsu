@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
 @CommandLine.Command(name = "index-of-a-number", aliases = "idan", description = "Эта команда считает индекс числа a")
 public class IndexOfANumber implements Callable<Integer> {
 
-    @CommandLine.Parameters(index = "0", description = "Число, чьи показатели нужно посчитать")
+    @CommandLine.Parameters(description = "Число, чьи показатели нужно посчитать")
     int a;
 
     @CommandLine.Option(names = {"-m", "--mod"}, description = "Модуль необходимый задаче", required = true)
