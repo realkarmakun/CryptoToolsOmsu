@@ -3,9 +3,7 @@ package cryptotoolsomsu.commands;
 import cryptotoolsomsu.Modulos;
 import cryptotoolsomsu.Utils;
 import picocli.CommandLine;
-import sun.nio.ch.Util;
 
-import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "index-of-a-number", aliases = "idan", description = "Эта команда считает индекс числа a")
