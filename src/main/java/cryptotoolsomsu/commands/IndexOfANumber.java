@@ -1,7 +1,7 @@
 package cryptotoolsomsu.commands;
 
-import cryptotoolsomsu.Modulos;
-import cryptotoolsomsu.Utils;
+import cryptotoolsomsu.tools.Exponents;
+import cryptotoolsomsu.tools.Modulos;
 import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
@@ -25,21 +25,13 @@ public class IndexOfANumber implements Callable<Integer> {
             throw new Exception("ОШИБКА: Убедитесь что модуль больше нуля!");
         }
 
-        Modulos modulos = new Modulos();
-        modulos.setA(this.a);
-        modulos.setMod(this.modulos);
-
-
-        // phi - будущая функция Эйлера
-        // В этом цикле переберем все числа от 1 до phi(mod)
-        for(int i = 1; i < Utils.eulerFunction(modulos.getMod()) + 1 ; i++) {
-            //Посчитаем а в степени и выведем на экран
-            modulos.exponentiation(i);
-            modulos.printModulusAsIndex(i, this.primitive && modulos.getB() == 1);
-            if (this.primitive && modulos.getB() == 1) {
-                break;
-            }
+        Modulos masterMod = new Modulos(this.a, this.modulos);
+        Exponents exponents = new Exponents(masterMod);
+        exponents.printExponents();
+        if (this.primitive) {
+            exponents.printPrimitive();
         }
+
         return 0;
     }
 }

@@ -1,6 +1,7 @@
 package cryptotoolsomsu.commands;
 
-import cryptotoolsomsu.Modulos;
+import cryptotoolsomsu.tools.Exponents;
+import cryptotoolsomsu.tools.Modulos;
 import cryptotoolsomsu.Utils;
 import picocli.CommandLine;
 
@@ -26,7 +27,7 @@ public class IndexInResidueRing implements Callable<Integer> {
         }
 
         // Еще проверки корректности, но требующие знания простых множителей
-        ArrayList<Integer> testP = Utils.primeFactor(p);
+        ArrayList<Long> testP = Utils.primeFactor(p);
         if (testP.size() != 1) {
             throw new Exception("ОШИБКА: Порядок вашего кольца вычетов не соот-ет теореме Гаусса!");
         }
@@ -39,24 +40,16 @@ public class IndexInResidueRing implements Callable<Integer> {
         System.out.printf("Следовательно оно будет первообразным корнем по модулю %d (Согласно второй теореме)\n", p);
 
         // Вычислим значение функции Эйлера для модуля меньшей степени
-        int phi = Utils.eulerFunction(mod);
+        long phi =  Utils.eulerFunction(mod);
 
         System.out.printf("Вычислим значения фи(%d) = %d\n", mod, phi);
 
         // Поиск первообразного среди степеней
         System.out.println("Вычислим степени:");
-        Modulos modulos = new Modulos();
-        modulos.setA(this.example);
-        modulos.setMod(mod);
+        Modulos masterMod = new Modulos(this.example, mod);
+        Exponents exponents = new Exponents(masterMod);
+        exponents.printExponents();
 
-        for(int i = 1; i < Utils.eulerFunction(modulos.getMod()) + 1 ; i++) {
-            //Посчитаем а в степени и выведем на экран
-            modulos.exponentiation(i);
-            modulos.printModulusAsIndex(i, modulos.getB() == 1);
-            if (modulos.getB() == 1) {
-                break;
-            }
-        }
         return 0;
     }
 
